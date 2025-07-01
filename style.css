@@ -1,0 +1,442 @@
+
+body {
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    color: #111;
+}
+
+a {
+    text-decoration: none;
+    color: #0066c0;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    color: #FF9900;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.login-box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-box h2 {
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.form-group small {
+    font-size: 11px;
+    color: #555;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a88734;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+    color: #767676;
+    font-size: 12px;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background-color: #e7e7e7;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.btn-create {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+    border: 1px solid #adb1b8;
+    border-radius: 3px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-create:hover {
+    background: linear-gradient(to bottom, #e7eaf0, #d9dce1);
+}
+
+.error {
+    color: #c40000;
+    font-size: 13px;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: #fff4f4;
+    border: 1px solid #ffb3b3;
+    border-radius: 3px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #232f3e;
+    color: white;
+}
+
+.dashboard-header .logo h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-logout {
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #848688;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.btn-logout:hover {
+    background-color: #3a4553;
+    text-decoration: none;
+}
+
+.dashboard-content {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #fafafa;
+    border-right: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 10px 20px;
+}
+
+.sidebar li.active {
+    background-color: #e6e6e6;
+    border-left: 3px solid #FF9900;
+}
+
+.sidebar li a {
+    color: #111;
+}
+
+.sidebar li a:hover {
+    color: #c45500;
+    text-decoration: none;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #111;
+    font-weight: 400;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.orders-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.orders-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-id {
+    font-weight: 700;
+}
+
+.order-date {
+    color: #555;
+    font-size: 13px;
+}
+
+.order-total {
+    font-weight: 700;
+}
+
+.order-status {
+    color: #008a00;
+    font-size: 13px;
+}
+
+.btn-view-all {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 17px;
+}
+
+.btn-checkout {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a88734;
+    border-radius: 3px;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+    text-decoration: none;
+}
+
+/* Checkout Styles */
+.checkout-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.checkout-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.step {
+    color: #767676;
+    font-size: 14px;
+}
+
+.step.active {
+    color: #111;
+    font-weight: 700;
+}
+
+.checkout-details {
+    display: flex;
+    gap: 30px;
+}
+
+.payment-method {
+    flex: 2;
+}
+
+.order-summary {
+    flex: 1;
+}
+
+.saved-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.saved-card input {
+    margin-right: 15px;
+}
+
+.saved-card label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-type {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.card-number {
+    font-size: 13px;
+}
+
+.card-expiry {
+    font-size: 13px;
+    color: #555;
+}
+
+.btn-add-card {
+    background: none;
+    border: 1px solid #d5d9d9;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #0066c0;
+}
+
+.btn-add-card:hover {
+    background-color: #f7fafa;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.order-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-size: 17px;
+    font-weight: 700;
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+.btn-place-order {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a88734;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-place-order:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}

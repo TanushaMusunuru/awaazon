@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.com Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #EAEDED;
+            color: #0F1111;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background-color: #131921;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-logo {
+            width: 100px;
+            margin-right: 20px;
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            margin-left: auto;
+            align-items: center;
+        }
+        
+        .nav-option {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+        }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-left: 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .cart-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .cart-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .cart-items {
+            flex: 0.7;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DDD;
+            margin-bottom: 20px;
+        }
+        
+        .cart-title {
+            font-size: 28px;
+            font-weight: 500;
+        }
+        
+        .price-column {
+            text-align: right;
+            font-weight: bold;
+        }
+        .cart-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #DDD;
+            position: relative;
+        }
+        
+        .cart-item-image {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-right: 20px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 18px;
+            color: #0066C0;
+            margin-bottom: 8px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .cart-item-title:hover {
+            text-decoration: underline;
+            color: #C45500;
+        }
+        
+        .in-stock {
+            color: #007600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .shipped-by {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        .gift-options {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .quantity-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #888C8C;
+            background-color: #F0F2F2;
+            margin-right: 10px;
+        }
+        
+        .action-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .action-link {
+            color: #0066C0;
+            font-size: 14px;
+            cursor: pointer;
+            border-left: 1px solid #DDD;
+            padding-left: 15px;
+        }
+        
+        .action-link:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .action-link:hover {
+            text-decoration: underline;
+            color: #C45500;
+        }
+        
+        .item-price {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+            min-width: 120px;
+        }
+        
+        .order-summary {
+            flex: 0.3;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+        
+        .summary-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid #DDD;
+        }
+        
+        .checkout-btn {
+            background-color: #FFD814;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #F7CA00;
+        }
+        
+        .secure-checkout {
+            font-size: 12px;
+            color: #767676;
+            text-align: center;
+        }
+        
+        .secure-checkout i {
+            color: #0066C0;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="navbar-logo">
+            <div class="nav-links">
+                <button class="nav-option" onclick="window.location.href='create.html'">
+                    <span class="option-line-one">Hello, Sign in</span>
+                    <span class="option-line-two">Account & Lists</span>
+                </button>
+                <button class="nav-option" onclick="window.location.href='orders.html'">
+                    <span class="option-line-one">Returns</span>
+                    <span class="option-line-two">& Orders</span>
+                </button>
+                <button class="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <div class="cart-header">
+                <h1 class="cart-title">Shopping Cart</h1>
+                <div class="price-column">Price</div>
+            </div>
+            
+            <div id="cartItems">
+            </div>
+            
+            <div class="cart-footer" style="text-align: right; margin-top: 20px;">
+                <div class="subtotal">
+                    Subtotal (<span id="itemCount">0</span> items): <span id="subtotal" style="font-weight: bold; font-size: 18px;">₹0.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <div class="summary-title">Order Summary</div>
+            <div class="summary-row">
+                <span>Items (<span id="summaryItemCount">0</span>):</span>
+                <span id="summarySubtotal">₹0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping & handling:</span>
+                <span id="shippingCost">₹0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Total before tax:</span>
+                <span id="totalBeforeTax">₹0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Estimated tax:</span>
+                <span id="taxAmount">₹0.00</span>
+            </div>
+            <div class="summary-total">
+                <span>Order total:</span>
+                <span id="orderTotal">₹0.00</span>
+            </div>
+            <button class="checkout-btn" id="proceedToCheckout">Proceed to Checkout</button>
+            <div class="secure-checkout">
+                <i class="fas fa-lock"></i>
+                <span>Secure Checkout</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('/get-cart')
+            .then(response => response.json())
+            .then(data => {
+                const cartItemsContainer = document.getElementById('cartItems');
+                const cartCount = data.cart_items ? data.cart_items.length : 0;
+                document.querySelector('.cart-count').textContent = cartCount;
+                document.getElementById('itemCount').textContent = cartCount;
+                document.getElementById('summaryItemCount').textContent = cartCount;
+                
+                const subtotal = data.subtotal || 0;
+                const shippingCost = data.shipping_cost || 0;
+                const taxAmount = data.tax_amount || 0;
+                const total = data.total || 0;
+                
+                document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+                document.getElementById('summarySubtotal').textContent = `₹${subtotal.toFixed(2)}`;
+                document.getElementById('shippingCost').textContent = shippingCost === 0 ? 'FREE' : `₹${shippingCost.toFixed(2)}`;
+                document.getElementById('taxAmount').textContent = `₹${taxAmount.toFixed(2)}`;
+                document.getElementById('orderTotal').textContent = `₹${total.toFixed(2)}`;
+                document.getElementById('totalBeforeTax').textContent = `₹${(subtotal + shippingCost).toFixed(2)}`;
+
+                cartItemsContainer.innerHTML = '';
+
+                // Add cart items
+                if (data.cart_items && data.cart_items.length > 0) {
+                    data.cart_items.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'cart-item';
+                        const itemPrice = parseFloat(item.price) || 0;
+                        const itemQuantity = parseInt(item.quantity) || 1;
+                        itemElement.innerHTML = `
+                            <img src="${item.product_image || 'https://via.placeholder.com/180'}" alt="${item.product_name}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <a href="/product/${item.product_id}" class="cart-item-title">${item.product_name}</a>
+                                <div class="in-stock">In Stock</div>
+                                <div class="shipped-by">Ships from and sold by Amazon.com</div>
+                                <div class="gift-options">
+                                    <input type="checkbox" id="gift-${item.product_id}">
+                                    <label for="gift-${item.product_id}">This is a gift</label>
+                                </div>
+                                <div class="quantity-selector">
+                                    <label for="quantity-${item.product_id}">Qty:</label>
+                                    <select id="quantity-${item.product_id}" class="quantity-select" data-product-id="${item.product_id}">
+                                        ${Array.from({length: 10}, (_, i) => 
+                                            `<option value="${i+1}" ${itemQuantity === i+1 ? 'selected' : ''}>${i+1}</option>`
+                                        ).join('')}
+                                    </select>
+                                </div>
+                                <div class="action-links">
+                                    <span class="action-link" onclick="removeFromCart('${item.product_id}')">Delete</span>
+                                    <span class="action-link">Save for later</span>
+                                    <span class="action-link">Compare with similar items</span>
+                                </div>
+                            </div>
+                            <div class="item-price">
+                                <div class="price">₹${(itemPrice * itemQuantity).toFixed(2)}</div>
+                                <div class="price-per-item">₹${itemPrice.toFixed(2)} each</div>
+                            </div>
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                    });
+                }
+                document.querySelectorAll('.quantity-select').forEach(select => {
+                    select.addEventListener('change', function() {
+                        const productId = this.dataset.productId;
+                        const newQuantity = parseInt(this.value);
+                        updateCartItem(productId, newQuantity);
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error loading cart:', error);
+                alert('Error loading cart. Please try again.');
+            });n
+        document.getElementById('proceedToCheckout').addEventListener('click', () => {
+            window.location.href = '/payment';
+        });
+    });
+
+    function updateCartItem(productId, quantity) {
+        fetch('/update-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity: quantity
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload(); 
+            } else {
+                alert('Failed to update cart: ' + (data.error || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('Error updating cart:', error);
+            alert('Error updating cart. Please try again.');
+        });
+    }
+
+    function removeFromCart(productId) {
+        if (confirm('Are you sure you want to remove this item from your cart?')) {
+            fetch('/remove-from-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    product_id: productId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Failed to remove item: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                console.error('Error removing item:', error);
+                alert('Error removing item. Please try again.');
+            });
+        }
+    }
+    </script>
+</body>
+</html>

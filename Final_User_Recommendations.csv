@@ -1,0 +1,101 @@
+transaction_id,user_id,transaction_date,items_in_cart,Category,Transaction_Amount,Bank_Name,Preferred_Payment_Method,Recommended_Payment_Method,Failed,Time_of_Day,Confidence (%)
+T004,U123,2024-06-22 22:37:02,"{Toothpaste, Face Wash, Laptop Stand, Dove Shampoo}",Electronics,1923.05,HDFC,EMI,EMI,0,Morning,59.85
+T069,U123,2024-06-29 16:37:02,{Toothpaste},Personal Care,13210.37,HDFC,UPI,UPI,0,Afternoon,99.66
+T096,U123,2024-07-02 19:37:02,"{Milk, Hair Oil}",Grocery,2781.02,SBI,Debit Card,Debit Card,0,Morning,72.48
+T050,U123,2024-07-12 15:37:02,"{iPhone 14, Denim Jeans, Phone Case, Hair Oil}",Apparel,1122.77,Axis,UPI,UPI,0,Evening,99.84
+T085,U123,2024-07-12 18:37:02,"{Bread, Laptop Stand, Milk}",Electronics,1498.99,HDFC,Debit Card,UPI,0,Evening,92.56
+T007,U123,2024-07-13 14:37:02,"{Phone Case, Face Wash}",Electronics,20894.84,ICICI,UPI,UPI,0,Night,99.85
+T010,U123,2024-07-18 00:37:02,{Phone Case},Electronics,11082.65,SBI,UPI,UPI,0,Afternoon,99.59
+T063,U123,2024-07-20 23:37:02,"{T-Shirt, Phone Case, Grocery Combo Pack, Bread}",Apparel,6084.41,Axis,UPI,UPI,0,Evening,99.88
+T047,U123,2024-07-25 01:37:02,"{Milk, Denim Jeans, T-Shirt}",Apparel,19139.23,Kotak,Wallet,Wallet,0,Morning,98.06
+T022,U123,2024-07-26 15:37:02,{Dove Shampoo},Personal Care,1342.52,SBI,UPI,UPI,0,Afternoon,99.26
+T035,U123,2024-07-27 10:37:02,"{Denim Jeans, Face Wash}",Apparel,2326.49,HDFC,Credit Card,UPI,1,Evening,91.85
+T041,U123,2024-07-28 15:37:02,"{Denim Jeans, iPhone 14}",Electronics,21646.03,Kotak,Debit Card,UPI,0,Afternoon,47.73
+T006,U123,2024-07-30 10:37:02,"{Hair Oil, Milk, Grocery Combo Pack}",Grocery,1004.32,Kotak,Credit Card,Debit Card,1,Morning,38.58
+T067,U123,2024-08-01 13:37:02,"{Laptop Stand, Hair Oil, Sneakers, Detergent}",Electronics,3436.7,Axis,Wallet,Wallet,0,Afternoon,98.38
+T055,U123,2024-08-06 00:37:02,"{Dove Shampoo, Phone Case, Detergent}",Personal Care,6105.56,HDFC,Credit Card,UPI,0,Night,92.16
+T084,U123,2024-08-09 23:37:02,"{Dove Shampoo, Toothpaste, Laptop Stand}",Personal Care,8359.11,Kotak,Credit Card,UPI,0,Evening,44.75
+T002,U123,2024-08-11 14:37:02,{Grocery Combo Pack},Grocery,18433.85,HDFC,UPI,UPI,0,Morning,99.69
+T075,U123,2024-08-13 06:37:02,"{Milk, Hair Oil, Sneakers}",Apparel,1761.23,Axis,Credit Card,Debit Card,0,Evening,44.68
+T026,U123,2024-08-14 00:37:02,"{Dove Shampoo, Denim Jeans}",Apparel,24254.82,ICICI,EMI,EMI,0,Afternoon,88.42
+T072,U123,2024-08-14 11:37:02,{Detergent},Grocery,12682.59,Kotak,EMI,EMI,0,Night,94.85
+T048,U123,2024-08-18 01:37:02,"{Grocery Combo Pack, Face Wash}",Grocery,19388.7,HDFC,Debit Card,UPI,0,Night,95.42
+T100,U123,2024-08-18 05:37:02,{Milk},Grocery,22233.62,Axis,UPI,UPI,0,Afternoon,99.89
+T021,U123,2024-08-20 00:37:02,"{Bluetooth Earphones, Toothpaste}",Electronics,3489.94,Kotak,Credit Card,UPI,0,Morning,31.39
+T034,U123,2024-08-26 14:37:02,"{Sneakers, Toothpaste, Phone Case}",Apparel,3952.64,Axis,Debit Card,Debit Card,0,Morning,42.55
+T037,U123,2024-08-27 01:37:02,{Detergent},Grocery,635.29,Kotak,Credit Card,Debit Card,0,Evening,35.78
+T012,U123,2024-08-30 00:37:02,"{Bread, Grocery Combo Pack, T-Shirt}",Apparel,7657.54,SBI,Credit Card,Debit Card,0,Afternoon,74.26
+T017,U123,2024-09-06 04:37:02,"{Denim Jeans, Phone Case}",Apparel,2093.76,Axis,UPI,UPI,0,Morning,99.79
+T091,U123,2024-09-07 17:37:02,"{Sneakers, Bread, Grocery Combo Pack, Detergent}",Grocery,8856.13,HDFC,Credit Card,UPI,0,Evening,94.35
+T097,U123,2024-09-17 08:37:02,"{Detergent, Face Wash, Laptop Stand, Grocery Combo Pack}",Grocery,22560.24,Axis,UPI,UPI,0,Night,99.95
+T078,U123,2024-09-21 08:37:02,"{Toothpaste, Phone Case}",Electronics,24648.44,SBI,Wallet,Wallet,0,Evening,98.09
+T024,U123,2024-09-24 20:37:02,{Milk},Grocery,8136.92,SBI,EMI,EMI,0,Night,76.48
+T073,U123,2024-09-28 19:37:02,"{Bluetooth Earphones, Bread}",Grocery,7478.59,Kotak,UPI,UPI,0,Morning,98.85
+T070,U123,2024-09-29 17:37:02,"{Dove Shampoo, Laptop Stand}",Electronics,9408.93,Kotak,Credit Card,Debit Card,1,Night,43.74
+T020,U123,2024-10-06 10:37:02,"{Bread, Face Wash}",Personal Care,17263.71,SBI,EMI,EMI,0,Night,95.08
+T003,U123,2024-10-09 00:37:02,{Denim Jeans},Apparel,4322.46,ICICI,EMI,EMI,0,Evening,83.52
+T046,U123,2024-10-14 00:37:02,{Milk},Grocery,3430.06,Axis,Wallet,Wallet,0,Evening,97.75
+T039,U123,2024-10-25 18:37:02,{Milk},Grocery,19396.12,SBI,UPI,UPI,0,Morning,99.87
+T016,U123,2024-11-01 09:37:02,"{Denim Jeans, Bluetooth Earphones}",Electronics,15384.85,Kotak,Debit Card,UPI,0,Afternoon,42.03
+T090,U123,2024-11-02 14:37:02,{Laptop Stand},Electronics,23449.88,ICICI,Debit Card,UPI,0,Morning,66.25
+T008,U123,2024-11-09 07:37:02,"{Laptop Stand, Toothpaste, Hair Oil}",Electronics,4954.71,HDFC,Debit Card,UPI,0,Afternoon,91.21
+T027,U123,2024-11-09 07:37:02,"{Hair Oil, Bluetooth Earphones}",Electronics,23517.72,Kotak,UPI,UPI,0,Morning,98.83
+T077,U123,2024-11-09 07:37:02,"{Phone Case, Sneakers}",Apparel,4049.92,HDFC,EMI,EMI,0,Evening,58.41
+T023,U123,2024-11-09 14:37:02,"{Dove Shampoo, Denim Jeans, Laptop Stand, Bread}",Grocery,6840.11,ICICI,EMI,EMI,0,Night,79.31
+T038,U123,2024-11-11 12:37:02,"{Bread, Toothpaste}",Grocery,17818.0,SBI,Debit Card,UPI,0,Night,46.87
+T036,U123,2024-11-11 22:37:02,"{Hair Oil, Denim Jeans, Bread, Face Wash}",Personal Care,19420.0,Kotak,Wallet,Wallet,0,Morning,98.04
+T030,U123,2024-11-13 06:37:02,"{Laptop Stand, Dove Shampoo, Face Wash, Hair Oil}",Electronics,1608.07,SBI,UPI,UPI,0,Morning,99.55
+T064,U123,2024-11-19 05:37:02,"{Denim Jeans, Bread, Hair Oil, Detergent}",Grocery,20541.36,Axis,Credit Card,UPI,0,Evening,70.75
+T052,U123,2024-12-04 05:37:02,"{Denim Jeans, Laptop Stand, Dove Shampoo}",Electronics,8201.72,ICICI,Debit Card,UPI,0,Evening,54.42
+T040,U123,2024-12-06 21:37:02,"{Laptop Stand, Bread, Sneakers}",Apparel,9282.41,Kotak,UPI,UPI,0,Morning,96.52
+T061,U123,2024-12-08 03:37:02,{Laptop Stand},Electronics,20282.28,ICICI,EMI,EMI,0,Afternoon,87.83
+T049,U123,2024-12-13 16:37:02,"{T-Shirt, Grocery Combo Pack, Denim Jeans}",Apparel,13306.95,Kotak,Credit Card,UPI,0,Evening,45.16
+T074,U123,2024-12-14 10:37:02,"{Milk, Toothpaste, Bluetooth Earphones, Denim Jeans}",Electronics,15434.33,HDFC,EMI,EMI,0,Night,68.01
+T098,U123,2024-12-15 06:37:02,"{Toothpaste, Milk, Bluetooth Earphones}",Personal Care,8806.23,Axis,EMI,EMI,0,Evening,87.08
+T005,U123,2024-12-20 04:37:02,"{Phone Case, iPhone 14, Bread}",Electronics,15227.32,Kotak,UPI,UPI,0,Night,99.25
+T018,U123,2024-12-22 02:37:02,"{iPhone 14, Dove Shampoo}",Electronics,24157.98,HDFC,EMI,UPI,0,Morning,49.5
+T053,U123,2025-01-13 10:37:02,{Face Wash},Personal Care,22735.38,ICICI,EMI,EMI,0,Evening,91.34
+T044,U123,2025-01-16 17:37:02,"{Bread, Toothpaste}",Personal Care,18375.35,ICICI,Wallet,Wallet,0,Afternoon,98.69
+T042,U123,2025-01-25 21:37:02,{Face Wash},Personal Care,8607.0,SBI,Credit Card,Debit Card,0,Afternoon,74.67
+T065,U123,2025-01-29 08:37:02,{T-Shirt},Apparel,670.33,ICICI,EMI,EMI,0,Afternoon,77.85
+T095,U123,2025-01-29 19:37:02,{Detergent},Grocery,13476.44,SBI,Debit Card,UPI,0,Evening,49.15
+T094,U123,2025-01-29 20:37:02,"{Bread, Face Wash, Detergent, T-Shirt}",Grocery,20521.94,Kotak,Debit Card,UPI,0,Night,62.19
+T059,U123,2025-02-01 12:37:02,"{Hair Oil, Denim Jeans, Sneakers, Laptop Stand}",Electronics,20189.97,Axis,Wallet,Wallet,0,Afternoon,98.87
+T068,U123,2025-02-07 03:37:02,"{Phone Case, T-Shirt, Face Wash}",Apparel,23601.29,SBI,UPI,UPI,0,Night,99.94
+T054,U123,2025-02-13 07:37:02,"{Milk, Dove Shampoo, Denim Jeans, Sneakers}",Personal Care,10554.38,SBI,Debit Card,Debit Card,0,Evening,39.88
+T025,U123,2025-02-14 16:37:02,{Milk},Grocery,13894.4,HDFC,EMI,EMI,0,Evening,68.54
+T086,U123,2025-02-15 08:37:02,"{Toothpaste, Laptop Stand, iPhone 14, Face Wash}",Personal Care,17100.33,HDFC,UPI,UPI,0,Night,99.86
+T029,U123,2025-02-20 23:37:02,"{Detergent, iPhone 14, Laptop Stand, T-Shirt}",Grocery,2668.07,Axis,Wallet,Wallet,0,Night,97.53
+T087,U123,2025-02-25 19:37:02,{Laptop Stand},Electronics,13046.28,HDFC,Credit Card,UPI,0,Morning,91.69
+T013,U123,2025-03-07 08:37:02,{Phone Case},Electronics,11673.71,ICICI,Credit Card,UPI,0,Night,42.96
+T019,U123,2025-03-18 21:37:02,"{Milk, Sneakers}",Grocery,7963.04,SBI,Debit Card,Debit Card,0,Night,59.33
+T009,U123,2025-03-20 16:37:02,"{Laptop Stand, Sneakers}",Apparel,7953.93,Kotak,Credit Card,UPI,0,Evening,44.75
+T083,U123,2025-03-21 15:37:02,"{Dove Shampoo, Detergent}",Grocery,2712.1,SBI,Debit Card,Debit Card,0,Evening,80.74
+T079,U123,2025-03-30 17:37:02,"{Bluetooth Earphones, Dove Shampoo}",Personal Care,16967.32,Axis,Debit Card,UPI,0,Afternoon,43.11
+T088,U123,2025-04-01 06:37:02,"{Phone Case, Denim Jeans}",Apparel,16306.73,Axis,EMI,EMI,0,Evening,96.09
+T011,U123,2025-04-06 15:37:02,"{Dove Shampoo, Milk, Sneakers}",Grocery,15490.4,Axis,Credit Card,UPI,0,Evening,52.09
+T031,U123,2025-04-15 08:37:02,"{iPhone 14, Denim Jeans}",Electronics,10022.59,HDFC,Debit Card,UPI,0,Morning,91.98
+T089,U123,2025-04-17 06:37:02,"{Grocery Combo Pack, Detergent, iPhone 14}",Electronics,17427.97,HDFC,Credit Card,UPI,0,Afternoon,92.29
+T014,U123,2025-04-20 19:37:02,"{T-Shirt, Grocery Combo Pack, Sneakers, Denim Jeans}",Apparel,5392.01,HDFC,Debit Card,UPI,0,Evening,92.71
+T056,U123,2025-04-27 19:37:02,"{T-Shirt, Milk, Grocery Combo Pack, Dove Shampoo}",Personal Care,7598.91,Axis,Credit Card,Debit Card,0,Afternoon,39.34
+T076,U123,2025-05-01 10:37:02,"{Sneakers, T-Shirt, Bread, Grocery Combo Pack}",Grocery,22752.51,SBI,Credit Card,UPI,0,Morning,70.88
+T066,U123,2025-05-04 10:37:02,{Detergent},Grocery,10726.57,Kotak,Debit Card,Debit Card,0,Morning,48.32
+T051,U123,2025-05-05 03:37:02,{Bread},Grocery,1270.02,Kotak,Wallet,Wallet,0,Night,88.07
+T060,U123,2025-05-12 01:37:02,"{Milk, Dove Shampoo, Face Wash, Sneakers}",Grocery,22367.7,SBI,Credit Card,UPI,0,Evening,71.73
+T001,U123,2025-05-12 20:37:02,{Bread},Grocery,9676.23,ICICI,Credit Card,Debit Card,1,Afternoon,42.25
+T015,U123,2025-05-14 03:37:02,{Face Wash},Personal Care,15014.16,ICICI,EMI,EMI,0,Morning,93.78
+T093,U123,2025-05-16 21:37:02,"{Hair Oil, Laptop Stand, Bluetooth Earphones}",Personal Care,6819.57,SBI,Debit Card,Debit Card,0,Evening,86.47
+T028,U123,2025-05-19 10:37:02,{Bluetooth Earphones},Electronics,15148.55,ICICI,EMI,EMI,0,Night,92.05
+T057,U123,2025-05-21 15:37:02,{Detergent},Grocery,23277.59,Axis,Credit Card,UPI,0,Afternoon,64.2
+T033,U123,2025-05-22 11:37:02,"{Detergent, Face Wash, Dove Shampoo}",Personal Care,7382.9,ICICI,Wallet,Wallet,0,Night,96.76
+T099,U123,2025-05-25 05:37:02,{Sneakers},Apparel,18285.91,SBI,Wallet,Wallet,0,Evening,97.95
+T081,U123,2025-05-25 11:37:02,"{Sneakers, Denim Jeans, Hair Oil}",Apparel,9510.69,Kotak,Wallet,Wallet,0,Evening,90.32
+T043,U123,2025-05-26 20:37:02,"{Phone Case, Denim Jeans, T-Shirt}",Apparel,8119.07,ICICI,Credit Card,Debit Card,0,Afternoon,38.65
+T032,U123,2025-05-31 00:37:02,"{Bluetooth Earphones, Grocery Combo Pack, Dove Shampoo, Hair Oil}",Electronics,20804.07,Kotak,UPI,UPI,0,Night,99.05
+T080,U123,2025-06-08 08:37:02,"{Sneakers, Phone Case, iPhone 14, Bluetooth Earphones}",Electronics,6322.12,Axis,Credit Card,UPI,0,Evening,52.79
+T058,U123,2025-06-11 09:37:02,"{iPhone 14, Denim Jeans, Dove Shampoo, Bluetooth Earphones}",Electronics,16018.39,ICICI,EMI,EMI,0,Evening,91.92
+T071,U123,2025-06-13 01:37:02,"{Laptop Stand, Grocery Combo Pack, Hair Oil}",Personal Care,24079.96,HDFC,Credit Card,UPI,0,Evening,98.79
+T045,U123,2025-06-13 20:37:02,"{Hair Oil, iPhone 14, Sneakers, Dove Shampoo}",Electronics,22236.71,Axis,Wallet,Wallet,0,Evening,98.07
+T082,U123,2025-06-14 07:37:02,"{Face Wash, Detergent, Dove Shampoo}",Personal Care,16021.48,ICICI,Wallet,Wallet,0,Morning,98.77
+T062,U123,2025-06-15 23:37:02,{T-Shirt},Apparel,8291.09,Kotak,EMI,EMI,0,Night,87.07
+T092,U123,2025-06-16 02:37:02,"{Bluetooth Earphones, Milk, Dove Shampoo, Face Wash}",Grocery,23154.99,Axis,UPI,UPI,0,Afternoon,99.93

@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.com Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #EAEDED;
+        }
+        .navbar {
+            background-color: #131921;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-logo {
+            width: 100px;
+            margin-right: 20px;
+            object-fit: contain;
+        }
+        
+        .search-bar {
+            display: flex;
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .search-input {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-icon {
+            background-color: #FEBD69;
+            color: #111;
+            height: 40px;
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            margin-left: 20px;
+        }
+        
+        .nav-option {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+        }
+        
+        .option-line-one {
+            font-size: 12px;
+        }
+        
+        .option-line-two {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-left: 15px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .cart-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        .secondary-nav {
+            background-color: #232F3E;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+        
+        .nav-menu i {
+            margin-right: 5px;
+        }
+        
+        .nav-links-secondary {
+            display: flex;
+            flex: 1;
+        }
+        
+        .nav-link-secondary {
+            margin: 0 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+        .checkout-progress {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        .progress-steps {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+        
+        .progress-step {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .progress-step.active {
+            color: #111;
+            font-weight: bold;
+        }
+        
+        .progress-step.completed {
+            color: #067D62;
+        }
+        
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #DDD;
+            color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+        
+        .active .step-number {
+            background-color: #FFD814;
+            color: #111;
+        }
+        
+        .completed .step-number {
+            background-color: #067D62;
+            color: white;
+        }
+        .checkout-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .checkout-left {
+            flex: 0.7;
+            margin-right: 20px;
+        }
+        
+        .checkout-right {
+            flex: 0.3;
+        }
+        .checkout-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .section-change {
+            color: #0066C0;
+            cursor: pointer;
+            font-size: 14px;
+            background: none;
+            border: none;
+        }
+        
+        .section-change:hover {
+            text-decoration: underline;
+            color: #C45500;
+        }
+        .address-info {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .address-default {
+            background-color: #F0F2F2;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 15px;
+            color: #555;
+        }
+        
+        .address-details {
+            flex: 1;
+        }
+        
+        .address-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .address-text {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .address-phone {
+            color: #555;
+        }
+        .payment-methods {
+            margin-top: 15px;
+        }
+        
+        .payment-tabs {
+            display: flex;
+            border-bottom: 1px solid #DDD;
+            margin-bottom: 15px;
+        }
+        
+        .payment-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .payment-tab.active {
+            border-bottom: 2px solid #e77600;
+            color: #e77600;
+            font-weight: bold;
+        }
+        
+        .payment-content {
+            display: none;
+        }
+        
+        .payment-content.active {
+            display: block;
+        }
+        
+        .card-form {
+            margin-top: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #888C8C;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #e77600;
+            box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        .card-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 25px;
+            object-fit: contain;
+            border: 1px solid #DDD;
+            border-radius: 4px;
+        }
+        .checkout-items {
+            margin-top: 15px;
+        }
+        
+        .checkout-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        .checkout-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+        
+        .checkout-item-info {
+            flex: 1;
+        }
+        
+        .checkout-item-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-item-seller {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-item-stock {
+            color: #007600;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-item-gift {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .checkout-item-gift input {
+            margin-right: 5px;
+        }
+        
+        .checkout-item-price {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .checkout-item-quantity {
+            font-size: 12px;
+            color: #555;
+        }
+        .order-summary {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DDD;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid #DDD;
+        }
+        
+        .place-order-btn {
+            background-color: #FFD814;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        .place-order-btn:hover {
+            background-color: #F7CA00;
+        }
+        
+        .secure-checkout {
+            font-size: 12px;
+            color: #767676;
+            text-align: center;
+        }
+        
+        .secure-checkout i {
+            color: #0066C0;
+            margin-right: 5px;
+        }
+        .footer {
+            background-color: #131921;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #DDD;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3a4553;
+            font-size: 12px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal-icon {
+            font-size: 60px;
+            color: #067D62;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-text {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .modal-btn {
+            background-color: #FFD814;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .modal-btn:hover {
+            background-color: #F7CA00;
+        }
+        
+        .payment-recommendation {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .recommendation-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #131921;
+        }
+        
+        .recommendation-content {
+            font-size: 14px;
+            color: #131921;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .recommendation-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #0066c0;
+        }
+        
+        .recommendation-method {
+            font-weight: 600;
+            color: #232F3E;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .recommendation-method i {
+            color: #0066c0;
+        }
+        
+        .recommendation-reason {
+            color: #565959;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .recommendation-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .recommendation-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #0f1111;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        
+        .recommendation-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .recommendation-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-left: 4px solid #0066c0;
+        }
+        
+        .recommendation-card:hover {
+            background-color: #f0f2f2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .recommendation-icon {
+            font-size: 20px;
+            margin-right: 12px;
+            color: #0066c0;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .recommendation-content {
+            flex: 1;
+        }
+        
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        
+        .recommendation-header h4 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f1111;
+        }
+        
+        .recommendation-badge {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+        
+        .recommendation-subtitle {
+            margin: 2px 0 4px;
+            font-size: 12px;
+            color: #565959;
+        }
+        
+        .recommendation-description {
+            margin: 0;
+            font-size: 12px;
+            color: #007185;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Same as before -->
+    <header>
+        <div class="navbar">
+            <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" class="navbar-logo">
+            
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search Amazon">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <button class="nav-option" onclick="window.location.href='create.html'">
+                    <span class="option-line-one">Hello, Sign in</span>
+                    <span class="option-line-two">Account & Lists</span>
+                </button>
+                
+                <button class="nav-option" onclick="window.location.href='orders.html'">
+                    <span class="option-line-one">Returns</span>
+                    <span class="option-line-two">& Orders</span>
+                </button>
+                
+                <button class="cart" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="secondary-nav">
+            <button class="nav-menu" onclick="window.location.href='all.html'">
+                <i class="fas fa-bars"></i>
+                <span>All</span>
+            </button>
+            
+            <div class="nav-links-secondary">
+                <button class="nav-link-secondary" onclick="window.location.href='deals.html'">Today's Deals</button>
+                <button class="nav-link-secondary" onclick="window.location.href='customer-service.html'">Customer Service</button>
+                <button class="nav-link-secondary" onclick="window.location.href='registry.html'">Registry</button>
+                <button class="nav-link-secondary" onclick="window.location.href='gift-cards.html'">Gift Cards</button>
+                <button class="nav-link-secondary" onclick="window.location.href='sell.html'">Sell</button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Checkout Progress -->
+    <div class="checkout-progress">
+        <div class="progress-steps">
+            <div class="progress-step completed">
+                <div class="step-number"><i class="fas fa-check"></i></div>
+                <div class="step-text">Sign in</div>
+            </div>
+            <div class="progress-step completed">
+                <div class="step-number"><i class="fas fa-check"></i></div>
+                <div class="step-text">Shipping</div>
+            </div>
+            <div class="progress-step active">
+                <div class="step-number">3</div>
+                <div class="step-text">Payment</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">4</div>
+                <div class="step-text">Place order</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Checkout Container -->
+    <div class="checkout-container">
+        <div class="checkout-left">
+            <!-- Shipping Address Section -->
+            <div class="checkout-section">
+                <div class="section-header">
+                    <div class="section-title">Shipping address</div>
+                    <button class="section-change">Change</button>
+                </div>
+                <div class="address-info">
+                    <div class="address-default">Default</div>
+                    <div class="address-details">
+                        <div class="address-name">John Doe</div>
+                        <div class="address-text">123 Main Street</div>
+                        <div class="address-text">Apartment 4B</div>
+                        <div class="address-text">New York, NY 10001</div>
+                        <div class="address-text">United States</div>
+                        <div class="address-phone">Phone: (555) 123-4567</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Method Section -->
+            <div class="checkout-section">
+                <div class="section-header">
+                    <div class="section-title">Payment method</div>
+                    <button class="section-change">Change</button>
+                </div>
+                
+                <div class="payment-methods">
+                    <div class="payment-tabs">
+                        <button class="payment-tab active" data-tab="credit-card">Credit/Debit Card</button>
+                        <button class="payment-tab" data-tab="paypal">PayPal</button>
+                        <button class="payment-tab" data-tab="amazon-pay">Amazon Pay</button>
+                    </div>
+                    
+                    <div class="payment-content active" id="credit-card">
+                        <div class="card-form">
+                            <div class="form-group">
+                                <label class="form-label">Name on card</label>
+                                <input type="text" class="form-input" id="card-name" placeholder="Name as it appears on your card">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Card number</label>
+                                <input type="text" class="form-input" id="card-number" placeholder="Enter card number">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label class="form-label">Expiration date</label>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <select class="form-input" id="exp-month">
+                                                <option value="">Month</option>
+                                                <option value="01">01 - January</option>
+                                                <option value="02">02 - February</option>
+                                                <option value="03">03 - March</option>
+                                                <option value="04">04 - April</option>
+                                                <option value="05">05 - May</option>
+                                                <option value="06">06 - June</option>
+                                                <option value="07">07 - July</option>
+                                                <option value="08">08 - August</option>
+                                                <option value="09">09 - September</option>
+                                                <option value="10">10 - October</option>
+                                                <option value="11">11 - November</option>
+                                                <option value="12">12 - December</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-col">
+                                            <select class="form-input" id="exp-year">
+                                                <option value="">Year</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                                <option value="2026">2026</option>
+                                                <option value="2027">2027</option>
+                                                <option value="2028">2028</option>
+                                                <option value="2029">2029</option>
+                                                <option value="2030">2030</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <label class="form-label">Security code</label>
+                                    <input type="text" class="form-input" id="card-cvv" placeholder="CVV">
+                                    <div class="card-icons">
+                                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png" alt="Visa" class="card-icon">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" class="card-icon">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="Amex" class="card-icon">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Discover_Financial_Services_logo.svg/2560px-Discover_Financial_Services_logo.svg.png" alt="Discover" class="card-icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-content" id="paypal">
+                        <p>You'll be redirected to PayPal to complete your purchase securely.</p>
+                        <button class="place-order-btn" style="margin-top: 15px;">Continue to PayPal</button>
+                    </div>
+                    
+                    <div class="payment-content" id="amazon-pay">
+                        <p>Pay with your Amazon Pay account.</p>
+                        <button class="place-order-btn" style="margin-top: 15px;">Pay with Amazon Pay</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Billing Address Section -->
+            <div class="checkout-section">
+                <div class="section-header">
+                    <div class="section-title">Billing address</div>
+                    <button class="section-change">Change</button>
+                </div>
+                <div class="address-info">
+                    <div class="address-details">
+                        <div class="address-text">Same as shipping address</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Items Section -->
+            <div class="checkout-section">
+                <div class="section-header">
+                    <div class="section-title">Items</div>
+                    <button class="section-change">Edit</button>
+                </div>
+                <div class="checkout-items" id="checkoutItems"></div>
+            </div>
+        </div>
+        
+        <div class="checkout-right">
+            <div class="order-summary">
+                <div class="summary-title">Order Summary</div>
+                <div class="summary-item">
+                    <span>Items ({{ cart_items|length }}):</span>
+                    <span>₹{{ "%.2f"|format(total_amount) }}</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping & handling:</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-item">
+                    <span>Total before tax:</span>
+                    <span>₹{{ "%.2f"|format(total_amount) }}</span>
+                </div>
+                <div class="summary-item">
+                    <span>Estimated tax (8%):</span>
+                    <span>₹{{ "%.2f"|format(total_amount * 0.08) }}</span>
+                </div>
+                <div class="summary-total">
+                    <span>Order total:</span>
+                    <span>₹{{ "%.2f"|format(total_amount * 1.08) }}</span>
+                </div>
+                <div class="order-note">
+                    <p>By placing your order, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+                </div>
+                <button class="place-order-btn" id="placeOrderBtn">Place your order</button>
+            </div>
+            
+            <!-- Payment Recommendations Section -->
+            <div class="payment-recommendation">
+                <div class="recommendation-title">Recommended Payment Options</div>
+                <div class="recommendation-content" id="paymentRecommendations">
+                </div>
+            </div>
+            
+            <div class="checkout-section">
+                <div class="section-title">Need help?</div>
+                <p style="font-size: 14px; margin-top: 10px;">For any questions about your order, visit our <a href="#" style="color: #0066C0;">Help Center</a> or <a href="#" style="color: #0066C0;">Contact Us</a>.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                    <li>Amazon Devices</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li>Sell products on Amazon</li>
+                    <li>Sell on Amazon Business</li>
+                    <li>Sell apps on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Advertise Your Products</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Amazon Payment Products</h3>
+                <ul>
+                    <li>Amazon Business Card</li>
+                    <li>Shop with Points</li>
+                    <li>Reload Your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Your Orders</li>
+                    <li>Shipping Rates & Policies</li>
+                    <li>Returns & Replacements</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" style="width: 80px; margin-bottom: 10px;">
+            <div>
+                <span>Conditions of Use</span>
+                <span>Privacy Notice</span>
+                <span>Interest-Based Ads</span>
+                <span> 1996-2023, Amazon.com, Inc. or its affiliates</span>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="modal-title">Order Placed Successfully!</h2>
+            <p class="modal-text">Thank you for your purchase. Your order has been placed and you'll receive a confirmation email shortly.</p>
+            <p class="modal-text">Order #: <span id="orderNumber">123-4567890-1234567</span></p>
+            <button class="modal-btn" id="continueShoppingBtn">Continue Shopping</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = [];
+            {% if cart_items %}
+                {% for item in cart_items %}
+                    cartItems.push({
+                        id: '{{ item.product_id }}',
+                        name: '{{ item.product_name }}',
+                        price: {{ item.price }},
+                        quantity: {{ item.quantity }},
+                        image: '{{ item.product_image }}'
+                    });
+                {% endfor %}
+            {% endif %}
+            function updateOrderSummary() {
+                const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const tax = subtotal * 0.08; // 8% tax
+                const total = subtotal + tax;
+                const itemCount = document.querySelector('.summary-item:nth-child(1) span:last-child');
+                if (itemCount) itemCount.textContent = `₹${subtotal.toFixed(2)}`;
+                
+                const totalBeforeTax = document.querySelector('.summary-item:nth-child(3) span:last-child');
+                if (totalBeforeTax) totalBeforeTax.textContent = `₹${subtotal.toFixed(2)}`;
+                
+                const taxElement = document.querySelector('.summary-item:nth-child(4) span:last-child');
+                if (taxElement) taxElement.textContent = `₹${tax.toFixed(2)}`;
+                
+                const totalElement = document.querySelector('.summary-total span:last-child');
+                if (totalElement) totalElement.textContent = `₹${total.toFixed(2)}`;
+                
+                updatePaymentRecommendations(total);
+            }
+            function updatePaymentRecommendations(total) {
+                const container = document.getElementById('paymentRecommendations');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                let recommendation = {
+                    method: 'UPI',
+                    reason: 'Instant payment with UPI',
+                    icon: 'fa-mobile-alt'
+                };
+                if (total < 5000) {
+                    recommendation = {
+                        method: 'Debit Card',
+                        reason: 'Best for payments under ₹5,000. Instant processing with no additional charges.',
+                        icon: 'fa-credit-card'
+                    };
+                } else if (total < 20000) {
+                    recommendation = {
+                        method: 'Credit Card EMI',
+                        reason: 'Convert your payment into easy EMIs. 3-6 months with low processing fee.',
+                        icon: 'fa-credit-card'
+                    };
+                } else {
+                    recommendation = {
+                        method: 'No-Cost EMI',
+                        reason: '6-12 months EMI with 0% interest. Best for high-value purchases.',
+                        icon: 'fa-money-bill-wave'
+                    };
+                }
+                const item = document.createElement('div');
+                item.className = 'recommendation-item';
+                item.innerHTML = `
+                    <div class="recommendation-method">
+                        <i class="fas ${recommendation.icon}"></i>
+                        ${recommendation.method}
+                    </div>
+                    <div class="recommendation-reason">${recommendation.reason}</div>
+                `;
+                container.appendChild(item);
+            }
+            updateOrderSummary();
+            document.getElementById('placeOrderBtn').addEventListener('click', function() {
+                alert('Your order has been placed successfully!');
+                window.location.href = '/order-confirmation';
+            });
+            const tabs = document.querySelectorAll('.payment-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.payment-content').forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

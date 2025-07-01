@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Payment - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <h1>Amazon Payment</h1>
+            </div>
+            <div class="user-info">
+                <span>Hello, {{ username }}</span>
+                <a href="{{ url_for('logout') }}" class="btn-logout">Sign Out</a>
+            </div>
+        </header>
+        
+        <div class="dashboard-content">
+            <div class="sidebar">
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#">Your Orders</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Account Settings</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div class="card payment-card">
+                    <h2>Payment Method</h2>
+                    <p><strong>Card:</strong> **** **** **** {{ payment_details.card_number[-4:] }}</p>
+                    <p><strong>Name:</strong> {{ payment_details.card_holder }}</p>
+                    <p><strong>Expires:</strong> {{ payment_details.expiry_date }}</p>
+                </div>
+                
+                <div class="card orders-card">
+                    <h2>Recent Orders</h2>
+                    {% if orders %}
+                        <ul class="orders-list">
+                            {% for order in orders[:3] %}
+                            <li>
+                                <div class="order-id">Order #{{ order.order_id }}</div>
+                                <div class="order-date">{{ order.order_date }}</div>
+                                <div class="order-total">${{ order.total_amount }}</div>
+                                <div class="order-status">{{ order.status }}</div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <a href="#" class="btn-view-all">View all orders</a>
+                    {% else %}
+                        <p>No orders found.</p>
+                    {% endif %}
+                </div>
+                
+                <div class="card cart-card">
+                    <h2>Your Cart</h2>
+                    {% if cart_items %}
+                        <ul class="cart-list">
+                            {% for item in cart_items %}
+                            <li>
+                                <div class="cart-product">{{ item.product_name }} (x{{ item.quantity }})</div>
+                                <div class="cart-price">${{ "%.2f"|format(item.price|float * item.quantity|int) }}</div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="cart-total">
+                            <strong>Total:</strong> ${{ "%.2f"|format(cart_items|sum(attribute='price')|float) }}
+                        </div>
+                        <a href="{{ url_for('payment') }}" class="btn-checkout">Proceed to Checkout</a>
+                    {% else %}
+                        <p>Your cart is empty.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    fetch('/get-cart', {
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (!response.ok) {
+            window.location.href = '/login';
+        }
+    })
+    .catch(() => {
+        window.location.href = '/login';
+    });
+</script>
+</body>
+</html>
