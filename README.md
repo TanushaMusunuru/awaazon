@@ -30,7 +30,7 @@ A **completely voice-operated**, **call-enabled**, and **offline-compatible** e-
 
 - AI-recommended payment logic  
 - Secure voice authentication  
-- USSD-based offline Autopay  
+- USSD and IVR based offline Autopay  
   
 ---
 
